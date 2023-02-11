@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>RichText Editor Demo</title>
+
+	<style>
+		button{
+			background: white;
+			padding: 5px 10px;
+			border: 2px solid #d5d5d5;
+			font-family: monospace;
+			font-weight: bold;
+			font-size: 15px;
+			border-radius: 5px;
+			color: #4e4ec5;
+			float: right;
+			margin-top: 10px;
+			margin-left: 5px;
+		}
+	</style>
+
+	<!-- Target Parent Folder -->
+	<base href='../' />
+	
+	<!-- CSS File -->
+	<link rel="stylesheet" href="richtexteditor/rte_theme_default.css" />
+
+</head>
+<body style="padding-bottom:3px;align-items:center">
+	<div style="margin:auto;padding:12px 6px 36px;max-width:960px;">
+		<h2 style="font-family: monospace;">RichText Editor Demo</h2>
+		<div class="hs-docs-content-divider">
+		<!--Include the JS & CSS-->
+			<textarea name="div_editor1" id="div_editor1" cols="30" rows="10"></textarea>
+			
+			<button class="btn btn-primary btn-sm" type="button" onclick="getEditorValue()">Submit</button>
+			<Button class="btn btn-primary btn-sm" type="button" onclick="setValueInEditor()">Edit</Button>
+			<!-- Target Parrent Folder -->
+		</div>
+	</div>
+
+	<!-- JS -->
+	<script type="text/javascript" src="richtexteditor/rte.js"></script>
+	<script >RTE_DefaultConfig.url_base='richtexteditor'</script>
+	<script type="text/javascript" src='richtexteditor/plugins/all_plugins.js'></script>
+
+	<script>
+		// initialized the textarea means textarea convert into editor
+		var editor1 = new RichTextEditor("#div_editor1");
+
+		function getEditorValue() {
+			// Get value and print in alert and console
+			alert(editor1.getHTMLCode());
+			console.log(editor1.getHTMLCode());
+		}
+		function setValueInEditor(){
+			//set value in editor
+			editor1.setHTMLCode('<p>value setted</p>');
+		}
+	</script>
+</body>
+</html>
